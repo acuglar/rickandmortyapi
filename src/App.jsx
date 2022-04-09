@@ -10,7 +10,8 @@ class App extends Component {
 	componentDidMount() {
 		fetch('https://rickandmortyapi.com/api/character')
 			.then(response => response.json())
-			.then(response => this.setState({ characters: response.results }));
+			.then(response => this.setState({ characters: response.results }))
+			.catch(error => console.log(error));
 	}
 
 	render() {
