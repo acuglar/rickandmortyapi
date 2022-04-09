@@ -5,8 +5,9 @@ class Chars extends Component {
 	render() {
 		return (
 			<div>
-				<div>Chars</div>
-				<CardChar />
+				{this.props.characters.map(char => (
+					<CardChar key={char.id} char={char} />
+				))}
 			</div>
 		);
 	}

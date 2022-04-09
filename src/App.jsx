@@ -20,8 +20,7 @@ class App extends Component {
 
 		return (
 			<div className='App'>
-				dofsdjfo
-				<Chars />
+				<Chars characters={this.state.characters} />
 			</div>
 		);
 	}
