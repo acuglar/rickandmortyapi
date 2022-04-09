@@ -1,13 +1,17 @@
 import { Component } from 'react';
 import CardChar from '../CardChar';
+import './style.css';
 
 class Chars extends Component {
 	render() {
 		return (
 			<div>
-				{this.props.characters.map(char => (
-					<CardChar key={char.id} char={char} />
-				))}
+				<h2>Rick and Morty Characters</h2>
+				<div className='container'>
+					{this.props.characters.map((char, index) => (
+						<CardChar key={index} char={char} />
+					))}
+				</div>
 			</div>
 		);
 	}

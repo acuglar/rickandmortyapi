@@ -1,0 +1,17 @@
+.card {
+	min-height: 150px;
+	width: 150px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	margin: 10px;
+	background-color: aliceblue;
+	color: cadetblue;
+	font-weight: bold;
+}
+
+.picture {
+	height: 130px;
+	width: 130px;
+	object-fit: cover;
+	margin: 10px;
+}
