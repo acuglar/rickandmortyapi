@@ -11,7 +11,6 @@ class CardChar extends Component {
 					src={this.props.char.image}
 					alt={this.props.char.name}
 				/>
-				<p>Origin: {this.props.char.origin.name}</p>
 			</div>
 		);
 	}
