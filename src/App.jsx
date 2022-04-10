@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
 	state = {
 		characters: [],
-		page: 1,
+		page: 42,
 	};
 
 	handleFetch = () => {
@@ -29,11 +29,15 @@ class App extends Component {
 	}
 
 	handleNext = () => {
-		this.setState({ page: this.state.page + 1 });
+		if (this.state.page < 42) {
+			this.setState({ page: this.state.page + 1 });
+		}
 	};
 
 	handlePrev = () => {
-		this.setState({ page: this.state.page - 1 });
+		if (this.state.page > 1) {
+			this.setState({ page: this.state.page - 1 });
+		}
 	};
 
 	render() {
@@ -42,6 +46,7 @@ class App extends Component {
 				<Chars characters={this.state.characters} />
 				<div>
 					<button onClick={this.handlePrev}>Prev</button>
+					{this.state.page}
 					<button onClick={this.handleNext}>Next</button>
 				</div>
 			</div>
