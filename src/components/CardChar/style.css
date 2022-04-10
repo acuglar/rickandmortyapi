@@ -10,8 +10,7 @@
 }
 
 .picture {
-	height: 130px;
-	width: 130px;
+	height: 125px;
+	width: 125px;
 	object-fit: cover;
-	margin: 10px;
 }
