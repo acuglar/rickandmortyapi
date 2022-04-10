@@ -21,8 +21,11 @@ class App extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
+		// para evitar componentDidUpdate loop, sempre deve haver uma condição de chamada
 		console.log(prevState);
-		// this.handleFetch();
+		if (this.state.page !== prevState.page) {
+			this.handleFetch();
+		}
 	}
 
 	handleNext = () => {
@@ -32,12 +35,6 @@ class App extends Component {
 	handlePrev = () => {
 		this.setState({ page: this.state.page - 1 });
 	};
-
-	/* Update loop problem */
-	// render() ->
-	// componentDidMount() => handleFetch() ->
-	// componentDidUpdate() => handleFetch() ->
-	// componentDidUpdate() => handleFetch() -> ...
 
 	render() {
 		return (
