@@ -4,11 +4,12 @@ import './style.css';
 
 class Chars extends Component {
 	render() {
+		const { characters } = this.props;
 		return (
 			<div>
 				<h2>Rick and Morty Characters</h2>
 				<div className='container'>
-					{this.props.characters.map((char, index) => (
+					{characters.map((char, index) => (
 						<CardChar key={index} char={char} />
 					))}
 				</div>

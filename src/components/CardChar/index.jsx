@@ -3,14 +3,11 @@ import './style.css';
 
 class CardChar extends Component {
 	render() {
+		const { name, image } = this.props.char;
 		return (
 			<div className='card'>
-				<label>{this.props.char.name}</label>
-				<img
-					className='picture'
-					src={this.props.char.image}
-					alt={this.props.char.name}
-				/>
+				<label>{name}</label>
+				<img className='picture' src={image} alt={name} />
 			</div>
 		);
 	}

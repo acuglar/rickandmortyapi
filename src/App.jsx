@@ -21,29 +21,32 @@ class App extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		// para evitar componentDidUpdate loop, sempre deve haver uma condição de chamada
+		const { page } = this.state;
 		console.log(prevState);
-		if (this.state.page !== prevState.page) {
+		if (page !== prevState.page) {
 			this.handleFetch();
 		}
 	}
 
 	handleNext = () => {
-		if (this.state.page < 42) {
-			this.setState({ page: this.state.page + 1 });
+		const { page } = this.state;
+		if (page < 42) {
+			this.setState({ page: page + 1 });
 		}
 	};
 
 	handlePrev = () => {
-		if (this.state.page > 1) {
-			this.setState({ page: this.state.page - 1 });
+		const { page } = this.state;
+		if (page > 1) {
+			this.setState({ page: page - 1 });
 		}
 	};
 
 	render() {
+		const { characters } = this.state;
 		return (
 			<div className='App'>
-				<Chars characters={this.state.characters} />
+				<Chars characters={characters} />
 				<div>
 					<button onClick={this.handlePrev}>Prev</button>
 					{this.state.page}
