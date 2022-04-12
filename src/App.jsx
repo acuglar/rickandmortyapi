@@ -5,14 +5,22 @@ import './App.css';
 class App extends Component {
 	state = {
 		characters: [],
-		page: 42,
+		next: '',
+		prev: '',
+		page: 1,
 	};
 
 	handleFetch = () => {
-		fetch(`https://rickandmortyapi.com/api/character?page=${this.state.page}`)
+		const { page } = this.state;
+		fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
 			.then(response => response.json())
-			.then(response => this.setState({ characters: response.results }))
-			.then(console.log('Fetched'))
+			.then(response =>
+				this.setState({
+					characters: response.results,
+					next: response.info.next,
+					prev: response.info.prev,
+				})
+			)
 			.catch(error => console.log(error));
 	};
 
@@ -22,22 +30,29 @@ class App extends Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		const { page } = this.state;
-		console.log(prevState);
+		console.log(
+			'currState: ',
+			this.state.prev,
+			this.state.next,
+			'\n',
+			'prevState: ',
+			prevState
+		);
 		if (page !== prevState.page) {
 			this.handleFetch();
 		}
 	}
 
 	handleNext = () => {
-		const { page } = this.state;
-		if (page < 42) {
+		const { page, next } = this.state;
+		if (next) {
 			this.setState({ page: page + 1 });
 		}
 	};
 
 	handlePrev = () => {
-		const { page } = this.state;
-		if (page > 1) {
+		const { page, prev } = this.state;
+		if (prev) {
 			this.setState({ page: page - 1 });
 		}
 	};
