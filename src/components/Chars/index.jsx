@@ -7,7 +7,6 @@ class Chars extends Component {
 		const { characters } = this.props;
 		return (
 			<div>
-				<h2>Rick and Morty Characters</h2>
 				<div className='container'>
 					{characters.map((char, index) => (
 						<CardChar key={index} char={char} />

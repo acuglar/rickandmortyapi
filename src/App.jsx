@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Chars from './components/Chars';
 import './App.css';
+import logo from './images/logo.png';
 
 class App extends Component {
 	state = {
@@ -61,12 +62,21 @@ class App extends Component {
 		const { characters } = this.state;
 		return (
 			<div className='App'>
-				<Chars characters={characters} />
-				<div>
-					<button onClick={this.handlePrev}>Prev</button>
-					{this.state.page}
-					<button onClick={this.handleNext}>Next</button>
+				<div className='menu'>
+					<img className='logo' src={logo} alt='logo' />
+					<div className='btn-container-outer'>
+						<div className='btn-container'>
+							<button className='pulse' onClick={this.handlePrev}>
+								Prev
+							</button>
+							{this.state.page}
+							<button className='pulse' onClick={this.handleNext}>
+								Next
+							</button>
+						</div>
+					</div>
 				</div>
+				<Chars characters={characters} />
 			</div>
 		);
 	}
